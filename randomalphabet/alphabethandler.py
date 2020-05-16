@@ -1,9 +1,25 @@
 #!/usr/bin/env python3
 
+# random-alphabet-py is a command line tool to encode and decode text using a randomized cipher
+#   Copyright (C) 2020  Noah Stanford <noahstandingford@gmail.com>
+# 
+#   random-aphabet-py is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+# 
+#   random-alphabet-py is distributed in the hope that it will be interesting and useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 """This module holds the AlphabetHandler class"""
 
 import hashlib
-import randomalphabet.repeatablerandom as rand 
+import randomalphabet.repeatablerandom as rand
 from randomalphabet.letterbucket import LetterBucket
 
 class AlphabetHandler:
@@ -66,7 +82,7 @@ class AlphabetHandler:
     def get_char_from_value(self, value):
         """
         Decodes a value and returns its corresponding character
-        value - the encoded value to be decoded into a character    
+        value - the encoded value to be decoded into a character
         """
         letter = "" 
         found = False
@@ -101,14 +117,14 @@ class AlphabetHandler:
         Returns the encoded value of a number
         number - the number to be encoded
         """
-        return (number + self._number_offset)
+        return number + self._number_offset
 
     def get_number_for_value(self, value):
         """
         Returns the decoded number for a value
         value - the value to be decoded
         """
-        return (value - self._number_offset)
+        return value - self._number_offset
 
     def random_value(self):
         """

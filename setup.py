@@ -1,3 +1,19 @@
+# random-alphabet-py is a command line tool to encode and decode text using a randomized cipher
+#   Copyright (C) 2020  Noah Stanford <noahstandingford@gmail.com>
+# 
+#   random-aphabet-py is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+# 
+#   random-alphabet-py is distributed in the hope that it will be interesting and useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 """This module handles installation, packaging, and running of the randomalphabet package"""
 
 from setuptools import setup
@@ -11,7 +27,7 @@ VERSION = "{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
 
 setup(name='randomalphabet',
       version=VERSION,
-      description="Command line tool to encode and decode text",
+      description="A command line tool to encode and decode text",
       url="https://github.com/CorruptedArk/random-alphabet-py",
       author='CorruptedArk',
       author_email='noahstandingford@gmail.com',
@@ -26,12 +42,10 @@ setup(name='randomalphabet',
           'Operating System :: POSIX',
           'Programming Language :: Python',
           'Programming Language :: Python :: 3.6',
-          'Development Status :: 5 - Production/Stable',
           'Topic :: Encryption'
       ],
       packages=find_packages(),
       entry_points={'console_scripts': ['randomalphabet = randomalphabet.randomalphabet:main']},
       zip_safe=False,
       platforms='any')
-
 

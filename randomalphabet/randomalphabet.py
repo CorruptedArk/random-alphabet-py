@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
 
+# random-alphabet-py is a command line tool to encode and decode text using a randomized cipher
+#   Copyright (C) 2020  Noah Stanford <noahstandingford@gmail.com>
+# 
+#   random-aphabet-py is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+# 
+#   random-alphabet-py is distributed in the hope that it will be interesting and useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+# 
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
 """This module is the main Random Alphabet script"""
 
 import argparse
@@ -25,7 +42,7 @@ def main():
         text_in = text_file.read()
         text_file.close()
     else:
-        text_in = args.text    
+        text_in = args.text
         
     if args.action == 'encode':
         print(translator.encode_text(text_in))
@@ -35,4 +52,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

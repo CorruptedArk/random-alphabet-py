@@ -1,3 +1,5 @@
+"""This module handles installation, packaging, and running of the randomalphabet package"""
+
 from setuptools import setup
 from setuptools import find_packages
 
@@ -10,7 +12,7 @@ VERSION = "{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
 setup(name='randomalphabet',
       version=VERSION,
       description="Command line tool to encode and decode text",
-      url='https://github.com/CorruptedArk',
+      url="https://github.com/CorruptedArk/random-alphabet-py",
       author='CorruptedArk',
       author_email='noahstandingford@gmail.com',
       license='GPLv3',

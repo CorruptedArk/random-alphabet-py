@@ -1,6 +1,11 @@
 # random-alphabet-py
 ## Description
-A command line tool to encode and decode text using a randomized cipher written in Python
+A command line tool to encode and decode text using a randomized cipher written in Python.
+
+I do not recommend using this program for any security or privacy critical purposes. 
+I am not specialized in cryptography or security. This is a hobby project that I thought was cool.
+
+Encoding generated with this program is not compatible with [RandomAlphabet](https://github.com/CorruptedArk/RandomAlphabet) or vice-versa.
 
 ## Usage
 If installed on your system, you run as `randomalphabet` with valid arguments from any directory. 

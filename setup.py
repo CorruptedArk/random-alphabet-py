@@ -18,15 +18,11 @@
 
 from setuptools import setup
 from setuptools import find_packages
-
-MAJOR_VERSION = '0'
-MINOR_VERSION = '1'
-MICRO_VERSION = '0'
-VERSION = "{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
+from randomalphabet.__main__ import get_version
 
 
 setup(name='randomalphabet',
-      version=VERSION,
+      version=get_version(),
       description="A command line tool to encode and decode text",
       url="https://github.com/CorruptedArk/random-alphabet-py",
       author='CorruptedArk',
@@ -45,7 +41,6 @@ setup(name='randomalphabet',
           'Topic :: Encryption'
       ],
       packages=find_packages(),
-      entry_points={'console_scripts': ['randomalphabet = randomalphabet.randomalphabet:main']},
+      entry_points={'console_scripts': ['randomalphabet = randomalphabet.__main__:main']},
       zip_safe=False,
       platforms='any')
-

@@ -38,6 +38,7 @@ setup(name='randomalphabet',
           'Operating System :: POSIX',
           'Programming Language :: Python',
           'Programming Language :: Python :: 3.6',
+          'Development Status :: 5 - Production/Stable',
           'Topic :: Encryption'
       ],
       packages=find_packages(),

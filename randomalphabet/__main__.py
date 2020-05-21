@@ -65,9 +65,6 @@ def main():
     args = parser.parse_args()
     
     translator = RandomTranslator(args.key, args.bucket_size, args.decoy_count)
-    
-    if args.about:
-        print(ABOUT)
 
     text_in = ""
     if args.file:
@@ -81,7 +78,7 @@ def main():
         print(translator.encode_text(text_in))
     else:
         print(translator.decode_text(text_in))
-        
+
 
 if __name__ == '__main__':
     main()

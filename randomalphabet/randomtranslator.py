@@ -60,7 +60,6 @@ class RandomTranslator:
                 temp_array[temp_real_char_index] = self._handler.get_value_for_letter(text[i])
                 tuple_list.append(
                     NTuple(temp_array.copy(), self._handler.get_value_for_number(temp_real_char_index), temp_location))
-           
             
             for i, _ in enumerate(tuple_list):
                 index = rand.randbelow(len(tuple_list))

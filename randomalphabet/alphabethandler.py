@@ -46,7 +46,6 @@ class AlphabetHandler:
             key_bytes = digest.digest()
             key_hashed_string = key_bytes.decode('latin1')
             self._rand = rand.RepeatableRandom(key_hashed_string)
-            #self._rand.seed(0)
         except:
             raise Exception("Failed to generate alphabet")
         
@@ -64,7 +63,6 @@ class AlphabetHandler:
         for i in range(len(self._alphabet)*bucket_size):
             self._value_list.append(i)
 
-        #self._rand.shuffle(self._value_list)
         for i, _ in enumerate(self._value_list):
             index = self._rand.next_int(0, len(self._value_list))
             temp = self._value_list[index]
@@ -78,7 +76,7 @@ class AlphabetHandler:
                 value_index += 1
         offset_index = self._rand.next_int(0, len(self._value_list))     
         self._number_offset = self._value_list[offset_index]
-        #self._number_offset = 0
+    
     def get_char_from_value(self, value):
         """
         Decodes a value and returns its corresponding character
@@ -132,4 +130,3 @@ class AlphabetHandler:
         This function is generally used to create decoys indistinguishable from a correct value
         """
         return self._value_list[self._rand.next_int(0,len(self._value_list))]
-        

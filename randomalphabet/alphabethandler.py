@@ -29,7 +29,6 @@ class AlphabetHandler:
         self._rand = rand.RepeatableRandom(0)
         self._alphabet = []
         self._value_list = []
-        self._number_offset = 0
 
     def generate_alphabet(self, key, bucket_size=10):
         """
@@ -75,8 +74,14 @@ class AlphabetHandler:
                 self._alphabet[i].add_value(self._value_list[value_index])
                 value_index += 1
         offset_index = self._rand.next_int(0, len(self._value_list))     
-        self._number_offset = self._value_list[offset_index]
     
+    def random_value(self):
+        """
+        Returns a completely random value from the valid set
+        This function is generally used to create decoys indistinguishable from a correct value
+        """
+        return self._value_list[self._rand.next_int(0,len(self._value_list))]
+
     def get_char_from_value(self, value):
         """
         Decodes a value and returns its corresponding character
@@ -110,23 +115,23 @@ class AlphabetHandler:
         
         return value
 
-    def get_value_for_number(self, number):
+    def get_value_for_number(self, in_number, number_max):
         """
         Returns the encoded value of a number
         number - the number to be encoded
+        number_max - one greater than the maximum number that in_number could be
         """
-        return number + self._number_offset
+        
+        encoded = self.random_value()
+        diff = (in_number - encoded) % number_max 
+        encoded += diff
 
-    def get_number_for_value(self, value):
+        return encoded
+
+    def get_number_for_value(self, value, number_max):
         """
         Returns the decoded number for a value
         value - the value to be decoded
+        number_max - one greater than the greatest number that value could be decoded to
         """
-        return value - self._number_offset
-
-    def random_value(self):
-        """
-        Returns a completely random value from the valid set
-        This function is generally used to create decoys indistinguishable from a correct value
-        """
-        return self._value_list[self._rand.next_int(0,len(self._value_list))]
+        return value % number_max

@@ -54,12 +54,12 @@ class RandomTranslator:
                 temp_real_char_index = rand.randbelow(len(temp_array))
                 #temp_real_char_index = 0
                 
-                temp_location = self._handler.get_value_for_number(i)
+                temp_location = self._handler.get_value_for_number(i, len(text))
                 for j in range(self._decoy_count + 1):
                     temp_array[j] = self._handler.random_value()
                 temp_array[temp_real_char_index] = self._handler.get_value_for_letter(text[i])
                 tuple_list.append(
-                    NTuple(temp_array.copy(), self._handler.get_value_for_number(temp_real_char_index), temp_location))
+                    NTuple(temp_array.copy(), self._handler.get_value_for_number(temp_real_char_index, self._decoy_count + 1), temp_location))
             
             for i, _ in enumerate(tuple_list):
                 index = rand.randbelow(len(tuple_list))
@@ -90,7 +90,9 @@ class RandomTranslator:
         pieces = text.split(',')
         pieces.pop()
 
-        decoded = [None] * (len(pieces)//self._tuple_size)
+        tuple_count = len(pieces) // self._tuple_size
+
+        decoded = [None] * tuple_count
 
         temp_split = [None] * self._tuple_size
         temp_index = 0
@@ -110,9 +112,9 @@ class RandomTranslator:
                     i += 1
                 penultimate = len(temp_split) - 2
                 ultimate = len(temp_split) - 1
-                temp_index = self._handler.get_number_for_value(int(temp_split[penultimate]))
+                temp_index = self._handler.get_number_for_value(int(temp_split[penultimate]), self._decoy_count + 1)
                 temp_letter = self._handler.get_char_from_value(int(temp_split[temp_index]))
-                temp_location = self._handler.get_number_for_value(int(temp_split[ultimate]))
+                temp_location = self._handler.get_number_for_value(int(temp_split[ultimate]), tuple_count)
                 decoded[temp_location] = temp_letter
         except:
             raise Exception('Decoding failed')

@@ -24,7 +24,7 @@ from randomalphabet.randomtranslator import RandomTranslator
 
 MAJOR_VERSION = '0'
 MINOR_VERSION = '1'
-MICRO_VERSION = '4'
+MICRO_VERSION = '5'
 VERSION = "{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
 
 ABOUT = f"""randomalphabet {VERSION} - Fork me at <https://github.com/CorruptedArk/random-alphabet-py>
